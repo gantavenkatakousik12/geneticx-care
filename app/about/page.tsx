@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { APPROACH_ABOUT, CLINICAL_NETWORK, SITE } from "@/lib/content";
 import { IMAGES } from "@/lib/images";
 import { CTABand, PageHero, Section, SectionHead } from "@/components/ui";
@@ -17,7 +16,7 @@ export default function AboutPage() {
         eyebrow="About"
         title="About GeneticxCare"
         lead="Making clinical genetics more accessible, understandable and connected to healthcare."
-        image={IMAGES.about}
+        image={IMAGES.services}
       />
 
       {/* Our Purpose */}
@@ -42,14 +41,35 @@ export default function AboutPage() {
       {/* Leadership */}
       <Section tone="paper">
         <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl2)]">
-            <Image
-              src={IMAGES.about.src}
-              alt={IMAGES.about.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
+          {/*
+            No photograph is shown here on purpose: a stock portrait beside a
+            named individual would misrepresent that person. Replace this card
+            with an approved photograph of the founder when one is supplied.
+          */}
+          <div className="rounded-[var(--radius-xl2)] border border-line bg-paper p-9">
+            <span
+              aria-hidden="true"
+              className="grid h-20 w-20 place-items-center rounded-2xl bg-forest-900 font-display text-[30px] font-bold text-gold-500"
+            >
+              RD
+            </span>
+            <p className="mt-6 font-display text-[15px] font-semibold text-forest-900">
+              Founder &amp; Director
+            </p>
+            <p className="mt-1 text-[14.5px] leading-relaxed text-ink-soft">
+              Certified Genetic Counselor practising in clinical genetics and
+              genomics.
+            </p>
+            <dl className="mt-6 space-y-3 border-t border-line-soft pt-5 text-[14px]">
+              <div>
+                <dt className="text-ink-faint">Qualifications</dt>
+                <dd className="font-semibold text-forest-900">M.Sc. | PGMGC | BGC-INDIA</dd>
+              </div>
+              <div>
+                <dt className="text-ink-faint">Operating region</dt>
+                <dd className="font-semibold text-forest-900">Telangana &amp; Andhra Pradesh</dd>
+              </div>
+            </dl>
           </div>
 
           <div>

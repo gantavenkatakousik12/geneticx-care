@@ -46,7 +46,14 @@ export default function EnquiryForm({
     for (const f of fields) {
       if (!("required" in f) || !f.required) continue;
       const v = String(data.get(f.name) ?? "").trim();
-      if (!v) next[f.name] = `${f.label.replace(/\*$/, "")} is required.`;
+      if (!v) {
+        next[f.name] =
+          f.type === "select"
+            ? "Please select an option."
+            : f.type === "radio"
+              ? "Please choose an option."
+              : `Please enter your ${f.label.toLowerCase()}.`;
+      }
       else if (f.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
         next[f.name] = "Enter a valid email address.";
       else if (f.type === "tel" && v.replace(/\D/g, "").length < 7)
