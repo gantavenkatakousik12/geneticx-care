@@ -65,8 +65,8 @@ export default function HomePage() {
 
               <div className="relative min-h-[280px] lg:min-h-full">
                 <Image
-                  src={IMAGES.humanCare.src}
-                  alt={IMAGES.humanCare.alt}
+                  src={IMAGES.homeHero.src}
+                  alt={IMAGES.homeHero.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 48vw"
                   className="object-cover"

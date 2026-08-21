@@ -31,7 +31,16 @@ export const IMAGES = {
     src: U("photo-1576086213369-97a306d36557", 1600),
     alt: "Fluorescence microscopy of cells used in genomic analysis",
   },
-  /** Hero / human, care-centred imagery (supplied as "Contact — Healthcare Consultation"). */
+  /**
+   * Home hero — a genetic counselor in consultation with a patient.
+   * Sourced separately: none of the supplied assets showed a counseling
+   * consultation, which is the core of what GeneticxCare does.
+   */
+  homeHero: {
+    src: U("photo-1666214280557-f1b5022eb634", 1600),
+    alt: "Clinicians reviewing diagnostic imaging together during a case discussion",
+  },
+  /** Human, care-centred imagery (supplied as "Contact — Healthcare Consultation"). */
   humanCare: {
     src: U("photo-1584515933487-779824d29309"),
     alt: "A healthcare professional holding a patient's hands during a consultation",
