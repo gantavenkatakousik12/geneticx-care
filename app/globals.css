@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * GeneticxCare design system
+ * Visual direction from the master doc: minimal, clinical, professional,
+ * human, trustworthy, modern. No heavy gradients, no excessive animation,
+ * no DNA-graphic clutter.
+ * ------------------------------------------------------------------ */
+
+@theme {
+  /* Brand greens */
+  --color-forest-950: #0A2B18;
+  --color-forest-900: #0E3A22;
+  --color-forest-800: #154C2D;
+  --color-forest-700: #1D6239;
+  --color-forest-600: #26773F;
+  --color-forest-500: #2F8A4E;
+  --color-forest-200: #C6DECA;
+  --color-forest-100: #E7F1E8;
+  --color-forest-50:  #F2F7F1;
+
+  /* Accent */
+  --color-gold-500: #F3C53F;
+  --color-gold-600: #DCAF25;
+  --color-gold-100: #FBF0CE;
+
+  /* Ink + surfaces */
+  --color-ink: #11241A;
+  --color-ink-soft: #566A5D;
+  --color-ink-faint: #8A9A90;
+  --color-line: #DDE7DC;
+  --color-line-soft: #EDF2EA;
+  --color-paper: #FFFFFF;
+  --color-canvas: #F5F8F3;
+
+  --font-display: var(--font-poppins), "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--font-inter), "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --radius-card: 24px;
+  --radius-xl2: 32px;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+
+  /* Visible, consistent focus ring for keyboard users (accessibility req). */
+  :focus-visible {
+    outline: 3px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Honour reduced-motion preferences. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Page shell */
+  .wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 22px; }
+  .wrap-narrow { width: 100%; max-width: 860px; margin-inline: auto; padding-inline: 22px; }
+
+  /* Eyebrow pill used above section headings */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 16px 7px 12px;
+    border-radius: 999px;
+    background: var(--color-forest-100);
+    color: var(--color-forest-800);
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 999px;
+    background: var(--color-gold-500);
+  }
+  .eyebrow-onDark { background: rgba(255,255,255,.12); color: #EAF3E9; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 14px 26px; border-radius: 999px;
+    font-family: var(--font-display); font-weight: 600; font-size: 15px;
+    line-height: 1; text-align: center; cursor: pointer;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .btn-gold { background: var(--color-gold-500); color: var(--color-forest-950); }
+  .btn-gold:hover { background: var(--color-gold-600); }
+  .btn-green { background: var(--color-forest-800); color: #fff; }
+  .btn-green:hover { background: var(--color-forest-900); }
+  .btn-outline { border: 1.5px solid var(--color-forest-800); color: var(--color-forest-800); background: transparent; }
+  .btn-outline:hover { background: var(--color-forest-100); }
+  .btn-ghostLight { border: 1.5px solid rgba(255,255,255,.45); color: #fff; background: transparent; }
+  .btn-ghostLight:hover { background: rgba(255,255,255,.12); }
+
+  /* Cards */
+  .card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 26px;
+  }
+  .card-soft { background: var(--color-forest-50); border-color: var(--color-line-soft); }
+
+  /* Text link with arrow */
+  .link-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--color-forest-700); font-weight: 600; font-size: 14.5px;
+  }
+  .link-arrow:hover { color: var(--color-forest-900); }
+
+  /* Long-form legal / prose pages */
+  .prose-legal h2 {
+    font-size: 20px; margin-top: 38px; margin-bottom: 10px; color: var(--color-forest-900);
+  }
+  .prose-legal h3 { font-size: 16.5px; margin-top: 22px; margin-bottom: 6px; }
+  .prose-legal p { margin-bottom: 14px; color: var(--color-ink-soft); }
+  .prose-legal ul { margin: 0 0 16px 0; padding-left: 20px; list-style: disc; color: var(--color-ink-soft); }
+  .prose-legal li { margin-bottom: 6px; }
+  .prose-legal strong { color: var(--color-ink); font-weight: 600; }
+  .prose-legal a { color: var(--color-forest-700); text-decoration: underline; text-underline-offset: 2px; }
+}
+
+/* Utility: balanced headline wrapping */
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }

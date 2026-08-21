@@ -1,0 +1,166 @@
+import Image from "next/image";
+import { APPROACH_ABOUT, CLINICAL_NETWORK, SITE } from "@/lib/content";
+import { IMAGES } from "@/lib/images";
+import { CTABand, PageHero, Section, SectionHead } from "@/components/ui";
+
+export const metadata = {
+  title: "About GeneticxCare",
+  description:
+    "Making clinical genetics more accessible, understandable and connected to healthcare. GeneticxCare is operated by R114D Private Limited.",
+  alternates: { canonical: "/about" },
+};
+
+export default function AboutPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="About"
+        title="About GeneticxCare"
+        lead="Making clinical genetics more accessible, understandable and connected to healthcare."
+        image={IMAGES.about}
+      />
+
+      {/* Our Purpose */}
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+          <SectionHead eyebrow="Our Purpose" title="Genetics is increasingly relevant across healthcare." />
+          <div className="lg:pt-2">
+            <p className="text-pretty text-[16.5px] leading-relaxed text-ink-soft">
+              Genetics is increasingly relevant across healthcare, yet access to
+              genetics expertise remains limited in many communities.
+            </p>
+            <p className="mt-4 text-pretty text-[16.5px] leading-relaxed text-ink-soft">
+              GeneticxCare was established to help bring genetics-focused
+              expertise into appropriate healthcare pathways, supporting
+              individuals, families and healthcare teams through genetic
+              counseling, assessment and genomic support.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Leadership */}
+      <Section tone="paper">
+        <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl2)]">
+            <Image
+              src={IMAGES.about.src}
+              alt={IMAGES.about.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div>
+            <span className="eyebrow">Leadership</span>
+            <h2 className="mt-4 text-[28px] text-forest-900 md:text-[34px]">
+              Ravikanth Dabbeta
+            </h2>
+            <p className="mt-2 font-display text-[15px] font-semibold text-forest-700">
+              M.Sc. | PGMGC | BGC-INDIA
+            </p>
+            <p className="mt-1 text-[15px] text-ink-soft">
+              Certified Genetic Counselor
+              <br />
+              Founder &amp; Director, GeneticxCare
+            </p>
+
+            <p className="mt-6 text-pretty text-[16px] leading-relaxed text-ink-soft">
+              GeneticxCare was founded with the aim of making genetics more
+              accessible, understandable and responsibly integrated into
+              healthcare.
+            </p>
+            <p className="mt-4 text-pretty text-[16px] leading-relaxed text-ink-soft">
+              The organization operates through a collaborative care model,
+              connecting genetics expertise with appropriate healthcare
+              professionals, diagnostic services and participating healthcare
+              institutions according to the needs of each case.
+            </p>
+
+            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-forest-50 p-6">
+              <h3 className="text-[17px] text-forest-900">Senior Advisors</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                GeneticxCare benefits from the advice and perspective of
+                experienced senior professionals in genetics and related
+                healthcare fields, including professionals with more than 25
+                years of experience. Their expertise is sought when appropriate
+                to support GeneticxCare&apos;s clinical approach, professional
+                standards and collaborative development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Clinical & Professional Network */}
+      <Section>
+        <SectionHead
+          eyebrow="Clinical & Professional Network"
+          title="Genetics-focused care, delivered collaboratively"
+          lead="GeneticxCare works with qualified professionals and healthcare organizations to support genetics-focused care according to individual and clinical requirements."
+        />
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {CLINICAL_NETWORK.map((item) => (
+            <li key={item} className="card card-soft text-[15px] font-medium text-forest-900">
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-[15px] leading-relaxed text-ink-soft">
+          The professionals and organizations involved depend on the nature of
+          the case and the healthcare pathway required.
+        </p>
+      </Section>
+
+      {/* Our Approach */}
+      <Section tone="paper">
+        <SectionHead eyebrow="Our Approach" title="How we work" align="center" />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {APPROACH_ABOUT.map((a) => (
+            <article key={a.title} className="card h-full">
+              <h3 className="text-[17px] text-forest-900">{a.title}</h3>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">{a.body}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* Vision & Mission */}
+      <Section>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="rounded-[var(--radius-xl2)] bg-forest-900 p-9 md:p-11">
+            <span className="eyebrow eyebrow-onDark">Our Vision</span>
+            <p className="mt-5 text-balance font-display text-[22px] font-semibold leading-snug text-white md:text-[26px]">
+              A healthcare system where genetics is accessible whenever it is
+              clinically relevant.
+            </p>
+          </div>
+          <div className="rounded-[var(--radius-xl2)] border border-line bg-paper p-9 md:p-11">
+            <span className="eyebrow">Our Mission</span>
+            <p className="mt-5 text-balance font-display text-[22px] font-semibold leading-snug text-forest-900 md:text-[26px]">
+              To make genetics understandable, accessible and responsibly
+              integrated into healthcare.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* Legal entity note */}
+      <Section tone="paper" className="!py-12">
+        <p className="text-[14.5px] leading-relaxed text-ink-soft">
+          GeneticxCare is a healthcare brand operated by{" "}
+          <strong className="font-semibold text-ink">{SITE.legalEntity}</strong>. Phase 1
+          operations cover {SITE.phase}.
+        </p>
+      </Section>
+
+      <CTABand
+        title="Have a question about genetics?"
+        body="GeneticxCare can help you understand the next step."
+        primary={{ label: "Book a Consultation", href: "/consultation#book" }}
+        secondary={{ label: "Contact GeneticxCare", href: "/contact" }}
+      />
+    </>
+  );
+}
