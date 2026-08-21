@@ -39,6 +39,7 @@ const FIELDS: readonly Field[] = [
     label: "Briefly describe your enquiry",
     type: "textarea",
     required: true,
+    errorMsg: "Please describe your enquiry.",
   },
 ];
 

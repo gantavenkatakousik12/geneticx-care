@@ -28,7 +28,13 @@ const FIELDS: readonly Field[] = [
     required: true,
   },
   { name: "areaOfInterest", label: "Area of Interest", type: "select", options: AREA_OF_INTEREST_GENERAL },
-  { name: "enquiry", label: "Briefly describe your enquiry", type: "textarea", required: true },
+  {
+    name: "enquiry",
+    label: "Briefly describe your enquiry",
+    type: "textarea",
+    required: true,
+    errorMsg: "Please describe your enquiry.",
+  },
   {
     name: "report",
     label: "Upload a Report",

@@ -31,7 +31,13 @@ const CASE_FIELDS: readonly Field[] = [
     options: PROFESSIONAL_REGARDING,
     required: true,
   },
-  { name: "requirement", label: "Briefly describe the requirement", type: "textarea", required: true },
+  {
+    name: "requirement",
+    label: "Briefly describe the requirement",
+    type: "textarea",
+    required: true,
+    errorMsg: "Please describe the requirement.",
+  },
   {
     name: "report",
     label: "Upload Relevant Report",
@@ -55,7 +61,13 @@ const INSTITUTIONAL_FIELDS: readonly Field[] = [
     options: INSTITUTIONAL_INTEREST,
     required: true,
   },
-  { name: "requirement", label: "Tell us about your requirement", type: "textarea", required: true },
+  {
+    name: "requirement",
+    label: "Tell us about your requirement",
+    type: "textarea",
+    required: true,
+    errorMsg: "Please tell us about your requirement.",
+  },
 ];
 
 export default function ProfessionalsPage() {

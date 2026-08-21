@@ -5,9 +5,9 @@ import { useId, useState } from "react";
 import { CONSENT_TEXT } from "@/lib/content";
 
 export type Field =
-  | { name: string; label: string; type: "text" | "tel" | "email"; required?: boolean; autoComplete?: string }
+  | { name: string; label: string; type: "text" | "tel" | "email"; required?: boolean; autoComplete?: string; errorMsg?: string }
   | { name: string; label: string; type: "select"; options: readonly string[]; required?: boolean }
-  | { name: string; label: string; type: "textarea"; required?: boolean; hint?: string }
+  | { name: string; label: string; type: "textarea"; required?: boolean; hint?: string; errorMsg?: string }
   | { name: string; label: string; type: "file"; hint?: string }
   | { name: string; label: string; type: "radio"; options: readonly string[]; required?: boolean };
 
@@ -48,11 +48,12 @@ export default function EnquiryForm({
       const v = String(data.get(f.name) ?? "").trim();
       if (!v) {
         next[f.name] =
-          f.type === "select"
+          ("errorMsg" in f && f.errorMsg) ||
+          (f.type === "select"
             ? "Please select an option."
             : f.type === "radio"
               ? "Please choose an option."
-              : `Please enter your ${f.label.toLowerCase()}.`;
+              : `Please enter your ${f.label.toLowerCase()}.`);
       }
       else if (f.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))
         next[f.name] = "Enter a valid email address.";
