@@ -14,19 +14,23 @@ export type Field =
 export type FormKind = "general" | "consultation" | "professional" | "institutional";
 
 const inputBase =
-  "w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] text-ink placeholder:text-ink-faint focus:border-forest-500 focus:outline-none";
+  "w-full rounded-xl border border-line bg-paper px-4 py-3 text-[15px] text-ink placeholder:text-ink-faint focus:border-navy-500 focus:outline-none";
 
 export default function EnquiryForm({
   kind,
   fields,
   submitLabel = "Submit Enquiry",
   note,
+  contactNote,
   fallbackEmail,
 }: {
   kind: FormKind;
   fields: readonly Field[];
   submitLabel?: string;
+  /** Sensitive-information notice (doc §13). */
   note?: string;
+  /** Contact-details note, sits immediately below the fields (doc §12). */
+  contactNote?: string;
   fallbackEmail: string;
 }) {
   const uid = useId();
@@ -89,9 +93,9 @@ export default function EnquiryForm({
     return (
       <div
         role="status"
-        className="rounded-[var(--radius-card)] border border-forest-200 bg-forest-50 p-8"
+        className="rounded-[var(--radius-card)] border border-navy-200 bg-navy-50 p-8"
       >
-        <h3 className="text-[20px] text-forest-900">Enquiry received</h3>
+        <h3 className="text-[20px] text-navy-900">Enquiry received</h3>
         <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
           Thank you. Your enquiry has been received by GeneticxCare. We will
           review the information provided and contact you regarding the
@@ -120,11 +124,11 @@ export default function EnquiryForm({
             <div key={f.name} className={isWide ? "sm:col-span-2" : ""}>
               <label
                 htmlFor={fid(f.name)}
-                className="mb-1.5 block font-display text-[14px] font-semibold text-forest-900"
+                className="mb-1.5 block font-display text-[14px] font-semibold text-navy-900"
               >
                 {f.label}
                 {required && (
-                  <span aria-hidden="true" className="text-gold-600">
+                  <span aria-hidden="true" className="text-teal-700">
                     {" "}
                     *
                   </span>
@@ -169,9 +173,9 @@ export default function EnquiryForm({
                   {f.options.map((o) => (
                     <label
                       key={o}
-                      className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-paper px-4 py-2 text-[14px] text-ink-soft has-[:checked]:border-forest-500 has-[:checked]:bg-forest-50 has-[:checked]:text-forest-900"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-paper px-4 py-2 text-[14px] text-ink-soft has-[:checked]:border-navy-500 has-[:checked]:bg-navy-50 has-[:checked]:text-navy-900"
                     >
-                      <input type="radio" name={f.name} value={o} className="accent-forest-700" />
+                      <input type="radio" name={f.name} value={o} className="accent-navy-700" />
                       {o}
                     </label>
                   ))}
@@ -184,7 +188,7 @@ export default function EnquiryForm({
                   name={f.name}
                   type="file"
                   accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                  className="w-full rounded-xl border border-dashed border-line bg-forest-50 px-4 py-3 text-[14px] text-ink-soft file:mr-3 file:rounded-full file:border-0 file:bg-forest-800 file:px-4 file:py-2 file:text-[13px] file:font-semibold file:text-white"
+                  className="w-full rounded-xl border border-dashed border-line bg-navy-50 px-4 py-3 text-[14px] text-ink-soft file:mr-3 file:rounded-full file:border-0 file:bg-navy-800 file:px-4 file:py-2 file:text-[13px] file:font-semibold file:text-white"
                 />
               )}
 
@@ -214,8 +218,12 @@ export default function EnquiryForm({
         })}
       </div>
 
+      {contactNote && (
+        <p className="mt-5 text-[13.5px] leading-relaxed text-ink-soft">{contactNote}</p>
+      )}
+
       {note && (
-        <p className="mt-6 rounded-xl bg-forest-50 px-4 py-3 text-[13.5px] leading-relaxed text-ink-soft">
+        <p className="mt-6 rounded-xl bg-navy-50 px-4 py-3 text-[13.5px] leading-relaxed text-ink-soft">
           {note}
         </p>
       )}
@@ -229,11 +237,11 @@ export default function EnquiryForm({
             id={fid("consent")}
             aria-invalid={!!errors.consent}
             aria-describedby={errors.consent ? eid("consent") : undefined}
-            className="mt-1 h-4 w-4 shrink-0 accent-forest-700"
+            className="mt-1 h-4 w-4 shrink-0 accent-navy-700"
           />
           <span className="text-[14px] leading-relaxed text-ink-soft">
             {CONSENT_TEXT.replace("Privacy Policy.", "")}
-            <Link href="/privacy-policy" className="text-forest-700 underline underline-offset-2">
+            <Link href="/privacy-policy" className="text-navy-700 underline underline-offset-2">
               Privacy Policy
             </Link>
             .
@@ -246,7 +254,7 @@ export default function EnquiryForm({
         )}
       </div>
 
-      <button type="submit" disabled={status === "sending"} className="btn btn-gold mt-7 w-full sm:w-auto">
+      <button type="submit" disabled={status === "sending"} className="btn btn-accent mt-7 w-full sm:w-auto">
         {status === "sending" ? "Sending…" : submitLabel}
         {status !== "sending" && <span aria-hidden="true">→</span>}
       </button>

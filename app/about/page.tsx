@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { APPROACH_ABOUT, CLINICAL_NETWORK, SITE } from "@/lib/content";
 import { IMAGES } from "@/lib/images";
 import { CTABand, PageHero, Section, SectionHead } from "@/components/ui";
@@ -16,13 +17,19 @@ export default function AboutPage() {
         eyebrow="About"
         title="About GeneticxCare"
         lead="Making clinical genetics more accessible, understandable and connected to healthcare."
-        image={IMAGES.services}
+        image={IMAGES.aboutBridge}
       />
 
       {/* Our Purpose */}
       <Section>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <SectionHead eyebrow="Our Purpose" title="Genetics is increasingly relevant across healthcare." />
+          {/*
+            Correction doc, About §2: the standalone heading sentence
+            "Genetics is increasingly relevant across healthcare." is removed
+            because the opening paragraph already says it. "Our Purpose" is the
+            section heading so the document outline stays intact.
+          */}
+          <h2 className="eyebrow self-start">Our Purpose</h2>
           <div className="lg:pt-2">
             <p className="text-pretty text-[16.5px] leading-relaxed text-ink-soft">
               Genetics is increasingly relevant across healthcare, yet access to
@@ -41,19 +48,19 @@ export default function AboutPage() {
       {/* Leadership */}
       <Section tone="paper">
         <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          {/*
-            No photograph is shown here on purpose: a stock portrait beside a
-            named individual would misrepresent that person. Replace this card
-            with an approved photograph of the founder when one is supplied.
-          */}
-          <div className="rounded-[var(--radius-xl2)] border border-line bg-paper p-9">
-            <span
-              aria-hidden="true"
-              className="grid h-20 w-20 place-items-center rounded-2xl bg-forest-900 font-display text-[30px] font-bold text-gold-500"
-            >
-              RD
-            </span>
-            <p className="mt-6 font-display text-[15px] font-semibold text-forest-900">
+          {/* Approved Founder & Director portrait, supplied August 2026. */}
+          <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-line bg-paper">
+            <div className="relative aspect-[3/4] w-full">
+              <Image
+                src={IMAGES.director.src}
+                alt={IMAGES.director.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 32vw"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="p-9">
+            <p className="font-display text-[15px] font-semibold text-navy-900">
               Founder &amp; Director
             </p>
             <p className="mt-1 text-[14.5px] leading-relaxed text-ink-soft">
@@ -63,21 +70,22 @@ export default function AboutPage() {
             <dl className="mt-6 space-y-3 border-t border-line-soft pt-5 text-[14px]">
               <div>
                 <dt className="text-ink-faint">Qualifications</dt>
-                <dd className="font-semibold text-forest-900">M.Sc. | PGMGC | BGC-INDIA</dd>
+                <dd className="font-semibold text-navy-900">M.Sc. | PGMGC | BGC-INDIA</dd>
               </div>
               <div>
                 <dt className="text-ink-faint">Operating region</dt>
-                <dd className="font-semibold text-forest-900">Telangana &amp; Andhra Pradesh</dd>
+                <dd className="font-semibold text-navy-900">Telangana &amp; Andhra Pradesh</dd>
               </div>
             </dl>
+            </div>
           </div>
 
           <div>
             <span className="eyebrow">Leadership</span>
-            <h2 className="mt-4 text-[28px] text-forest-900 md:text-[34px]">
+            <h2 className="mt-4 text-[28px] text-navy-900 md:text-[34px]">
               Ravikanth Dabbeta
             </h2>
-            <p className="mt-2 font-display text-[15px] font-semibold text-forest-700">
+            <p className="mt-2 font-display text-[15px] font-semibold text-navy-700">
               M.Sc. | PGMGC | BGC-INDIA
             </p>
             <p className="mt-1 text-[15px] text-ink-soft">
@@ -98,8 +106,8 @@ export default function AboutPage() {
               institutions according to the needs of each case.
             </p>
 
-            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-forest-50 p-6">
-              <h3 className="text-[17px] text-forest-900">Senior Advisors</h3>
+            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-navy-50 p-6">
+              <h3 className="text-[17px] text-navy-900">Senior Advisors</h3>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                 GeneticxCare benefits from the advice and perspective of
                 experienced senior professionals in genetics and related
@@ -122,7 +130,7 @@ export default function AboutPage() {
         />
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CLINICAL_NETWORK.map((item) => (
-            <li key={item} className="card card-soft text-[15px] font-medium text-forest-900">
+            <li key={item} className="card card-soft text-[15px] font-medium text-navy-900">
               {item}
             </li>
           ))}
@@ -139,7 +147,7 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {APPROACH_ABOUT.map((a) => (
             <article key={a.title} className="card h-full">
-              <h3 className="text-[17px] text-forest-900">{a.title}</h3>
+              <h3 className="text-[17px] text-navy-900">{a.title}</h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">{a.body}</p>
             </article>
           ))}
@@ -149,7 +157,7 @@ export default function AboutPage() {
       {/* Vision & Mission */}
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-[var(--radius-xl2)] bg-forest-900 p-9 md:p-11">
+          <div className="rounded-[var(--radius-xl2)] bg-navy-900 p-9 md:p-11">
             <span className="eyebrow eyebrow-onDark">Our Vision</span>
             <p className="mt-5 text-balance font-display text-[22px] font-semibold leading-snug text-white md:text-[26px]">
               A healthcare system where genetics is accessible whenever it is
@@ -158,7 +166,7 @@ export default function AboutPage() {
           </div>
           <div className="rounded-[var(--radius-xl2)] border border-line bg-paper p-9 md:p-11">
             <span className="eyebrow">Our Mission</span>
-            <p className="mt-5 text-balance font-display text-[22px] font-semibold leading-snug text-forest-900 md:text-[26px]">
+            <p className="mt-5 text-balance font-display text-[22px] font-semibold leading-snug text-navy-900 md:text-[26px]">
               To make genetics understandable, accessible and responsibly
               integrated into healthcare.
             </p>

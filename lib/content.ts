@@ -30,12 +30,26 @@ export const SITE = {
     ],
     city: "Hyderabad, Telangana, India",
   },
+  /**
+   * Correction doc, Contact §5: weekday hours only. The separate
+   * Saturday–Sunday & Public Holidays operational paragraph is removed.
+   */
   hours: {
     weekday: "Monday – Friday: 10:00 AM – 5:00 PM IST",
-    weekend: "Saturday – Sunday & Public Holidays",
+    note: "Consultation enquiries and routine scheduling are primarily handled during these hours. Responses outside these hours may be delayed.",
   },
+  whatsapp: "https://wa.me/917013592834",
   legalUpdated: "20 August 2026",
 } as const;
+
+/**
+ * Official social profiles (correction doc, final page).
+ * LinkedIn was listed without a URL, so it is omitted until supplied.
+ */
+export const SOCIAL = [
+  { label: "YouTube", href: "https://www.youtube.com/@geneticxcare" },
+  { label: "Instagram", href: "https://www.instagram.com/geneticxcare/" },
+] as const;
 
 export const NAV = [
   { label: "Home", href: "/" },
@@ -97,10 +111,12 @@ export const SERVICES = [
   {
     id: "genetic-counseling",
     title: "Genetic Counseling",
+    // Correction doc, Home §5: no use of the word "condition" in this blurb.
     homeBlurb:
-      "Understand genetic conditions, inherited risks, family history and genetic testing options.",
+      "Understand genetic and familial risks, family history and genetic testing options.",
+    // Correction doc, Services §2.
     full:
-      "Professional counseling to assess genetic and familial risk, discuss relevant genetic findings and testing options, and support informed healthcare decisions.",
+      "A structured counseling process to assess genetic and familial risk, discuss relevant genetic findings and testing options, and support informed healthcare decisions.",
   },
   {
     id: "genetic-risk-assessment",
@@ -188,8 +204,9 @@ export const WHO_WE_SUPPORT = [
     body: "For people with genetic concerns, family history or questions about genetic testing.",
   },
   {
+    // Correction doc, Home §7.
     title: "Couples",
-    body: "For preconception, carrier-risk, infertility and other reproductive genetic concerns.",
+    body: "For preconception, carrier screening, infertility and other reproductive genetics concerns.",
   },
   {
     title: "Healthcare Professionals",
@@ -250,8 +267,9 @@ export const AREAS_WE_SUPPORT = [
     body: "Neurological, developmental and neuromuscular conditions with possible genetic involvement.",
   },
   {
+    // Correction doc, Services §9.
     title: "Cytogenetics & Chromosomal Conditions",
-    body: "Chromosomal abnormalities, cytogenetic findings and related concerns.",
+    body: "Chromosomal abnormalities, cytogenetic findings and their clinical or familial implications.",
   },
   {
     title: "Rare & Inherited Conditions",
@@ -266,8 +284,9 @@ export const AREAS_WE_SUPPORT = [
     body: "Genetic information relating to individual responses to selected medicines.",
   },
   {
+    // Correction doc, Services §11: "Evidence-based" removed.
     title: "Nutrigenomics & Genomic Health",
-    body: "Evidence-based genomic education relating to selected nutrition and health considerations.",
+    body: "Genomic education relating to selected nutrition and health considerations.",
   },
 ] as const;
 
@@ -291,9 +310,10 @@ export const ONLINE_SUITABLE_FOR = [
 export const CONSULTATION_PROCESS = [
   { step: "01", title: "Submit Your Enquiry", body: "Tell us about your concern." },
   {
+    // Correction doc, Consultation §6.
     step: "02",
     title: "Initial Review",
-    body: "We review the information to understand the appropriate consultation pathway.",
+    body: "We review the information to determine the appropriate consultation pathway.",
   },
   {
     step: "03",
@@ -322,6 +342,29 @@ export const COMMON_SITUATIONS = [
   "Reproductive genetic concerns",
   "Existing genetic reports",
   "Unexplained or unusual clinical presentations",
+] as const;
+
+/**
+ * Correction doc, Healthcare Professionals §5 — "Why Institutions Work With
+ * GeneticxCare". Belongs to the Institutional Collaboration section only.
+ */
+export const WHY_INSTITUTIONS = [
+  {
+    title: "Extend Genetics Expertise",
+    body: "Access dedicated genetics support when an institution does not have in-house genetics expertise available for every case.",
+  },
+  {
+    title: "Support Existing Clinical Teams",
+    body: "Provide genetics-focused assessment, counseling, testing pathway support and report discussion alongside the institution's existing clinical care.",
+  },
+  {
+    title: "Coordinate the Genetics Pathway",
+    body: "Help connect appropriate cases with genetic counseling, diagnostic services, specialist evaluation and follow-up when required.",
+  },
+  {
+    title: "Support Regional Access",
+    body: "Where appropriate, GeneticxCare can also support regional consultation initiatives in collaboration with participating healthcare institutions.",
+  },
 ] as const;
 
 export const INSTITUTIONAL_SERVICES = [
@@ -381,8 +424,9 @@ export const FAQS = [
     a: "Whole Exome Sequencing examines most protein-coding regions of the genome. Its usefulness depends on the clinical question and the information available.",
   },
   {
+    // Correction doc, FAQ §1A.
     q: "What is carrier screening?",
-    a: "Carrier screening looks for certain genetic variants that may have reproductive implications.",
+    a: "Carrier screening looks for certain genetic variants that may affect the chance of passing a genetic condition to a child.",
   },
   {
     q: "What does a positive genetic result mean?",
@@ -417,8 +461,9 @@ export const FAQS = [
     a: "Yes. Genetic counseling can help determine whether a child's developmental history warrants genetic evaluation.",
   },
   {
+    // Correction doc, FAQ §1B.
     q: "Does GeneticxCare prescribe medicines?",
-    a: "GeneticxCare's genetics services do not replace medical prescribing or treatment by the treating healthcare professional.",
+    a: "No. GeneticxCare does not prescribe medicines or replace treatment provided by your treating healthcare professional.",
   },
   {
     q: "Does GeneticxCare replace my doctor?",
@@ -507,17 +552,19 @@ export const PROFESSIONAL_REGARDING = [
   "Other",
 ] as const;
 
+/** Correction doc, Healthcare Professionals §8 — exact approved option set. */
 export const INSTITUTIONAL_INTEREST = [
+  "Genetics support for clinical cases",
+  "Institutional genetics service support",
+  "Genetic counseling access",
+  "Genetic testing pathway support",
+  "Genetics education / professional training",
   "Regional Consultation Program",
-  "Genetics Consultation Support",
-  "Genetic Counseling Support",
-  "Genetics-focused Case Assessment",
-  "Genetic Testing Pathway Support",
-  "Healthcare Professional Education",
-  "Other",
+  "Other institutional requirement",
 ] as const;
 
-export const PREFERRED_CONTACT = ["Email", "WhatsApp", "Phone"] as const;
+/** Correction doc, Contact §11 — the Phone option is removed. */
+export const PREFERRED_CONTACT = ["Email", "WhatsApp"] as const;
 
 export const CONSENT_TEXT =
   "I consent to GeneticxCare contacting me regarding my enquiry and processing the information I provide for this purpose in accordance with the Privacy Policy.";

@@ -49,9 +49,9 @@ export default function ConsultationPage() {
       <PageHero
         eyebrow="Consultation"
         title="Genetic Consultation"
-        lead="Professional genetics support, wherever appropriate."
-        extra="GeneticxCare provides genetic counseling and related services through online consultation and in-person consultation through participating healthcare institutions."
-        image={IMAGES.onlineConsult}
+        lead="Professional genetics support through online and participating healthcare settings."
+        extra="GeneticxCare provides genetic counseling and related services through online consultations and in-person consultations at participating healthcare institutions."
+        image={IMAGES.consultation}
       />
 
       {/* Online consultation */}
@@ -70,8 +70,9 @@ export default function ConsultationPage() {
                 information or specialist assessment and may therefore be
                 directed to an in-person setting.
               </Notice>
+              {/* Correction doc, Consultation §5. */}
               <Notice tone="warn">
-                Prenatal genetic services are handled through appropriate
+                Prenatal genetic services are coordinated through appropriate
                 registered healthcare institutions and are not provided as
                 independent online prenatal diagnostic services.
               </Notice>
@@ -99,13 +100,13 @@ export default function ConsultationPage() {
               title="Tell us briefly about your concern."
               lead="GeneticxCare will review your enquiry and guide you regarding the appropriate consultation pathway."
             />
-            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-forest-50 p-6">
-              <h3 className="text-[16px] text-forest-900">Prefer to email?</h3>
+            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-navy-50 p-6">
+              <h3 className="text-[16px] text-navy-900">Prefer to email?</h3>
               <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">
                 Consultation enquiries can also be sent to{" "}
                 <a
                   href={`mailto:${SITE.emails.care}`}
-                  className="font-semibold text-forest-700 underline underline-offset-2"
+                  className="font-semibold text-navy-700 underline underline-offset-2"
                 >
                   {SITE.emails.care}
                 </a>

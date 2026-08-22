@@ -18,7 +18,7 @@ export default function ServicesPage() {
         title="Genetics & Genomics Services"
         lead="GeneticxCare provides genetics and genomics services for individuals, families and healthcare professionals."
         extra="Our work includes counseling, risk assessment, testing guidance, report discussion and healthcare navigation based on the individual's circumstances."
-        image={IMAGES.genomics}
+        image={IMAGES.services}
       />
 
       {/* Our Services — anchor targets for the Home page "Explore Service" links */}
@@ -41,7 +41,7 @@ export default function ServicesPage() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {AREAS_WE_SUPPORT.map((a) => (
             <article key={a.title} className="card h-full">
-              <h3 className="text-[16.5px] text-forest-900">{a.title}</h3>
+              <h3 className="text-[16.5px] text-navy-900">{a.title}</h3>
               <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-soft">{a.body}</p>
             </article>
           ))}
@@ -50,7 +50,7 @@ export default function ServicesPage() {
 
       {/* Healthcare professional support — deliberately short (doc note) */}
       <Section>
-        <div className="rounded-[var(--radius-xl2)] bg-forest-800 px-7 py-10 md:px-12 md:py-12">
+        <div className="rounded-[var(--radius-xl2)] bg-navy-800 px-7 py-10 md:px-12 md:py-12">
           <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div className="max-w-2xl">
               <span className="eyebrow eyebrow-onDark">Healthcare Professional Support</span>
@@ -59,7 +59,7 @@ export default function ServicesPage() {
                 hospitals and healthcare institutions.
               </p>
             </div>
-            <Link href="/healthcare-professionals" className="btn btn-gold shrink-0">
+            <Link href="/healthcare-professionals" className="btn btn-accent shrink-0">
               For Healthcare Professionals <span aria-hidden="true">→</span>
             </Link>
           </div>

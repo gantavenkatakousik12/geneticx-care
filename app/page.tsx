@@ -12,7 +12,7 @@ import { CTABand, InfoCard, Section, SectionHead, StepCard } from "@/components/
 export const metadata = {
   title: "GeneticxCare | Integrated Clinical Genetics & Genomics",
   description:
-    "GeneticxCare provides professional genetic counseling, genetic risk assessment and genomic support for individuals, families and healthcare professionals.",
+    "GeneticxCare provides genetic counseling, risk assessment and genomic support for individuals, families and healthcare professionals.",
   alternates: { canonical: "/" },
 };
 
@@ -22,25 +22,30 @@ export default function HomePage() {
       {/* ---------------- Hero ---------------- */}
       <section className="bg-canvas pt-6 pb-4 md:pt-10">
         <div className="wrap">
-          <div className="overflow-hidden rounded-[var(--radius-xl2)] bg-forest-900">
+          <div className="overflow-hidden rounded-[var(--radius-xl2)] bg-navy-900">
             <div className="grid items-stretch lg:grid-cols-[1.05fr_0.95fr]">
               <div className="px-7 py-12 md:px-12 md:py-16 lg:py-20">
+                {/*
+                  Correction doc, Home §1: the hierarchy is reversed. The first
+                  line is the institutional positioning label; the headline is
+                  the memorable brand statement.
+                */}
                 <span className="eyebrow eyebrow-onDark">
-                  Bringing genetics closer to healthcare
+                  Integrated Clinical Genetics &amp; Genomics
                 </span>
 
                 <h1 className="mt-6 text-balance text-[34px] leading-[1.06] text-white md:text-[52px]">
-                  Integrated Clinical Genetics &amp; Genomics
+                  Bringing genetics closer to healthcare.
                 </h1>
 
-                <p className="mt-6 max-w-xl text-pretty text-[17px] leading-relaxed text-forest-200">
-                  GeneticxCare provides professional genetic counseling, genetic
-                  risk assessment and genomic support for individuals, families
-                  and healthcare professionals.
+                <p className="mt-6 max-w-xl text-pretty text-[17px] leading-relaxed text-navy-200">
+                  GeneticxCare provides genetic counseling, risk assessment and
+                  genomic support for individuals, families and healthcare
+                  professionals.
                 </p>
 
                 <div className="mt-9 flex flex-wrap gap-3">
-                  <Link href="/consultation#book" className="btn btn-gold">
+                  <Link href="/consultation#book" className="btn btn-accent">
                     Book a Consultation <span aria-hidden="true">→</span>
                   </Link>
                   <Link href="/healthcare-professionals" className="btn btn-ghostLight">
@@ -52,9 +57,9 @@ export default function HomePage() {
                   {SERVICES.map((s) => (
                     <li
                       key={s.id}
-                      className="flex items-center gap-2.5 text-[14.5px] text-forest-200"
+                      className="flex items-center gap-2.5 text-[14.5px] text-navy-200"
                     >
-                      <span aria-hidden="true" className="text-gold-500">
+                      <span aria-hidden="true" className="text-teal-500">
                         ✓
                       </span>
                       {s.title}
@@ -93,7 +98,7 @@ export default function HomePage() {
 
           <div className="order-1 lg:order-2">
             <span className="eyebrow">Introduction</span>
-            <h2 className="mt-4 text-balance text-[28px] text-forest-900 md:text-[38px]">
+            <h2 className="mt-4 text-balance text-[28px] text-navy-900 md:text-[38px]">
               Genetics is part of healthcare.
             </h2>
             <p className="mt-5 text-pretty text-[16px] leading-relaxed text-ink-soft">
@@ -142,7 +147,7 @@ export default function HomePage() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {WHO_WE_SUPPORT.map((w) => (
             <article key={w.title} className="card card-soft h-full">
-              <h3 className="text-[17px] text-forest-900">{w.title}</h3>
+              <h3 className="text-[17px] text-navy-900">{w.title}</h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">{w.body}</p>
             </article>
           ))}
@@ -177,14 +182,17 @@ export default function HomePage() {
               body: "Genetic counseling can be provided online when the nature of the case allows meaningful assessment through remote consultation.",
               href: "/consultation",
               label: "Explore Online Consultation",
-              image: IMAGES.onlineConsult,
+              // Doc §10: subtle digital/remote-care visual, not another
+              // doctor-and-patient consultation photograph.
+              image: IMAGES.homeOnline,
             },
             {
               title: "Regional Consultation Program",
               body: "GeneticxCare works with participating healthcare institutions to bring genetics consultation closer to patients and healthcare teams in regional locations.",
               href: "/regional-program",
               label: "Explore Regional Program",
-              image: IMAGES.institution,
+              // Doc §10: the approved regional-access visual.
+              image: IMAGES.homeRegional,
             },
           ].map((item) => (
             <article
@@ -201,7 +209,7 @@ export default function HomePage() {
                 />
               </div>
               <div className="p-7">
-                <h3 className="text-[20px] text-forest-900">{item.title}</h3>
+                <h3 className="text-[20px] text-navy-900">{item.title}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{item.body}</p>
                 <Link href={item.href} className="link-arrow mt-5">
                   {item.label} <span aria-hidden="true">→</span>
@@ -222,7 +230,7 @@ export default function HomePage() {
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {APPROACH_HOME.map((a) => (
             <article key={a.title} className="card h-full">
-              <h3 className="text-[17px] text-forest-900">{a.title}</h3>
+              <h3 className="text-[17px] text-navy-900">{a.title}</h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-ink-soft">{a.body}</p>
             </article>
           ))}
@@ -232,7 +240,7 @@ export default function HomePage() {
       {/* ---------------- Closing CTA ---------------- */}
       <CTABand
         title="Have a question about genetics?"
-        body="Whether you are seeking genetic counseling, reviewing a genetic report or looking for genetics support for your patients, GeneticxCare can help you understand the next step."
+        body="Whether you are seeking genetic counseling, discussing a genetic report or looking for genetics support for your patients, GeneticxCare can help you understand the next step."
         primary={{ label: "Book a Consultation", href: "/consultation#book" }}
         secondary={{ label: "Contact GeneticxCare", href: "/contact" }}
       />

@@ -32,15 +32,15 @@ export default function Accordion({ items }: { items: readonly Item[] }) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-start justify-between gap-5 px-6 py-5 text-left transition-colors hover:bg-forest-50"
+                className="flex w-full items-start justify-between gap-5 px-6 py-5 text-left transition-colors hover:bg-navy-50"
               >
-                <span className="font-display text-[16.5px] font-semibold text-forest-900">
+                <span className="font-display text-[16.5px] font-semibold text-navy-900">
                   {item.q}
                 </span>
                 <span
                   aria-hidden="true"
-                  className={`mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-line text-forest-700 transition-transform ${
-                    isOpen ? "rotate-45 bg-forest-100" : ""
+                  className={`mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-line text-navy-700 transition-transform ${
+                    isOpen ? "rotate-45 bg-navy-100" : ""
                   }`}
                 >
                   +

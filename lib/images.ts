@@ -1,80 +1,145 @@
 /**
- * Image assets (client-supplied set).
+ * Image assets — client-supplied final set (August 2026 correction doc).
  *
- * Master-doc rule: "Do not place text or logo inside images." These are used as
- * photography only — all copy stays in HTML/CSS.
+ * All files live in /public/images. Widths/heights are the intrinsic pixel
+ * dimensions of the supplied files so next/image can reserve layout space.
  *
- * NOTE FOR THE CLIENT — several supplied URLs do not depict what their label
- * says, so each image is mapped to the slot it genuinely fits rather than the
- * slot it was labelled with:
- *   • "DNA / Genotyping Laboratory" (photo-1582719478250) is a HOTEL BEDROOM.
- *     Unusable; excluded until a replacement is supplied.
- *   • "Consultation — Healthcare Discussion" (photo-1584982751601) is a
- *     stethoscope with loose tablets. Excluded: GeneticxCare does not
- *     prescribe medicines, so pill imagery is off-message.
- *   • "Healthcare Professionals — Clinical Collaboration" (photo-1551076805)
- *     is an empty operating theatre — no collaboration, no people. Reused as
- *     the institutional-facility image for the Regional Program.
- *   • "Home Hero — Genetic Counseling" (photo-1559757175) is a plastic brain
- *     model — too cold for the hero; moved to the professionals page.
- *   • "Regional — Doctor & Patient" (photo-1612349317150) is a solo studio
- *     portrait with no patient; used on About.
- * Swap these out once the finalized assets referenced in the doc arrive.
+ * NOTE FOR THE CLIENT — the master doc says "do not place text or logo inside
+ * images". The supplied home-online-consultation and contact visuals do carry
+ * the GeneticxCare wordmark inside the artwork. They are used as delivered
+ * because they are the approved assets; flagging the conflict here.
  */
 
-const U = (id: string, w = 1400, q = 72) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=${q}`;
+type Img = {
+  readonly src: string;
+  readonly alt: string;
+  readonly width: number;
+  readonly height: number;
+};
+
+const img = (src: string, alt: string, width: number, height: number): Img => ({
+  src: `/images/${src}`,
+  alt,
+  width,
+  height,
+});
 
 export const IMAGES = {
-  /** Genomic sequencing imagery (supplied as "Genomic Sequencing Laboratory"). */
-  genomics: {
-    src: U("photo-1576086213369-97a306d36557", 1600),
-    alt: "Fluorescence microscopy of cells used in genomic analysis",
-  },
+  /** Home hero — genetic counselor discussing a pedigree with a couple. */
+  homeHero: img(
+    "home-hero.png",
+    "A genetic counselor discussing a family pedigree chart with a couple during a consultation",
+    2400,
+    1600,
+  ),
+
   /**
-   * Home hero — a genetic counselor in consultation with a patient.
-   * Sourced separately: none of the supplied assets showed a counseling
-   * consultation, which is the core of what GeneticxCare does.
+   * Home → Access to Genetics Care, "Online Genetic Consultation" card.
+   * Doc §10: a clean, subtle digital/remote-care visual — not another
+   * doctor-and-patient photograph.
    */
-  homeHero: {
-    src: U("photo-1666214280557-f1b5022eb634", 1600),
-    alt: "Clinicians reviewing diagnostic imaging together during a case discussion",
-  },
-  /** Human, care-centred imagery (supplied as "Contact — Healthcare Consultation"). */
-  humanCare: {
-    src: U("photo-1584515933487-779824d29309"),
-    alt: "A healthcare professional holding a patient's hands during a consultation",
-  },
-  /** Online consultation (supplied as "About — Doctor / Patient"). */
-  onlineConsult: {
-    src: U("photo-1576091160399-112ba8d25d1d"),
-    alt: "A doctor using a mobile device for a remote consultation",
-  },
-  /** Participating institution facility (supplied as "Clinical Collaboration"). */
-  institution: {
-    src: U("photo-1551076805-e1869033e561"),
-    alt: "A clinical procedure room at a healthcare institution",
-  },
-  /** Leadership / people (supplied as "Regional Consultation — Doctor & Patient"). */
-  about: {
-    src: U("photo-1612349317150-e413f6a5b16d"),
-    alt: "A clinician in a white coat",
-  },
-  /** Genomics laboratory (supplied as "Services — Genomics Laboratory"). */
-  services: {
-    src: U("photo-1579154204601-01588f351e67"),
-    alt: "A scientist working in a genomics laboratory",
-  },
-  /** Clinical genetics context (supplied as "Home Hero — Genetic Counseling"). */
-  professionals: {
-    src: U("photo-1559757175-0eb30cd8c063"),
-    alt: "An anatomical model used in clinical teaching",
-  },
-  /** Laboratory testing (supplied as "FAQ — Genetics / Laboratory"). */
-  faq: {
-    src: U("photo-1532187863486-abf9dbad1b69"),
-    alt: "A pipette dispensing samples into a laboratory tray",
-  },
+  homeOnline: img(
+    "home-online-consultation.png",
+    "A laptop on a desk showing the GeneticxCare online consultation screen",
+    1672,
+    941,
+  ),
+
+  /**
+   * Home → Access to Genetics Care, "Regional Consultation Program" card.
+   * Doc §10: the approved regional-access visual, not a hospital room.
+   */
+  homeRegional: img(
+    "home-regional-consultation.png",
+    "An illustrated map of India with Telangana and Andhra Pradesh highlighted, between rural and urban healthcare facilities",
+    1536,
+    1024,
+  ),
+
+  /**
+   * About hero — the bridge visual representing genetics connecting with
+   * healthcare. Doc §10 reserves this image for About only.
+   */
+  aboutBridge: img(
+    "about-bridge.png",
+    "A bridge linking laboratory science with clinical care and families",
+    1536,
+    1024,
+  ),
+
+  /** About — Founder & Director portrait. */
+  director: img(
+    "about-director.jpg",
+    "Ravikanth Dabbeta, Founder and Director of GeneticxCare",
+    1200,
+    1800,
+  ),
+
+  /** Services hero — genetics and genomics service overview visual. */
+  services: img(
+    "services.png",
+    "A DNA helix branching into icons representing the GeneticxCare service areas",
+    1536,
+    1024,
+  ),
+
+  /** Consultation hero — online and in-person consultation settings. */
+  consultation: img(
+    "consultation.png",
+    "A genetic counselor on an online consultation alongside an in-person consultation with a couple",
+    1717,
+    916,
+  ),
+
+  /** Regional Program hero — genetics access across regional locations. */
+  regional: img(
+    "regional-program.png",
+    "A genetics consultation linked by a route to city, town, rural and mobile healthcare settings",
+    1535,
+    1024,
+  ),
+
+  /** Healthcare Professionals hero — clinical team case discussion. */
+  professionals: img(
+    "professionals.png",
+    "A multidisciplinary clinical team discussing a case around a meeting table",
+    1536,
+    1024,
+  ),
+
+  /** Healthcare Professionals → Institutional Collaboration section only. */
+  institutional: img(
+    "institutional-collaboration.png",
+    "Participating hospitals and a diagnostic laboratory connected across a regional map",
+    1535,
+    1024,
+  ),
+
+  /** FAQ hero. */
+  faq: img(
+    "faq.png",
+    "A question mark surrounded by genetics and laboratory icons",
+    1536,
+    1024,
+  ),
+
+  /** Contact hero. */
+  contact: img(
+    "contact.png",
+    "A GeneticxCare desk card beside a laptop and notebook in a quiet office",
+    1536,
+    1024,
+  ),
+} as const;
+
+/**
+ * Brand marks, cropped from the supplied master logo (logo-source.png).
+ * The "light" variants are recoloured for the navy surfaces.
+ */
+export const LOGO = {
+  wordmark: { src: "/images/logo-wordmark.png", width: 1370, height: 232 },
+  wordmarkLight: { src: "/images/logo-wordmark-light.png", width: 1370, height: 232 },
+  lockupLight: { src: "/images/logo-lockup-light.png", width: 1370, height: 354 },
 } as const;
 
 export type ImageKey = keyof typeof IMAGES;

@@ -31,7 +31,7 @@ export default function RegionalProgramPage() {
         title="Regional Consultation Program"
         lead="Bringing genetics closer to regional healthcare."
         extra="The GeneticxCare Regional Consultation Program connects patients and healthcare teams with genetics expertise through participating healthcare institutions."
-        image={IMAGES.institution}
+        image={IMAGES.regional}
       />
 
       <Section>
@@ -45,7 +45,7 @@ export default function RegionalProgramPage() {
         <div className="grid gap-5 md:grid-cols-3">
           {AUDIENCES.map((a) => (
             <article key={a.title} className="card h-full">
-              <h2 className="text-[19px] text-forest-900">{a.title}</h2>
+              <h2 className="text-[19px] text-navy-900">{a.title}</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{a.body}</p>
             </article>
           ))}
@@ -70,12 +70,17 @@ export default function RegionalProgramPage() {
         </div>
       </Section>
 
+      {/*
+        Correction doc, Regional §5. There is exactly ONE primary institutional
+        collaboration destination — the Healthcare Professionals page — so the
+        secondary CTA links there rather than repeating the form here.
+      */}
       <CTABand
-        title="Explore the Regional Consultation Program"
-        body="Patients can explore consultation options, and healthcare institutions can discuss collaboration with GeneticxCare."
+        title="Explore Regional Consultation Availability"
+        body="Patients can explore available regional consultation options. Healthcare institutions interested in participating can connect with GeneticxCare through our professional collaboration pathway."
         primary={{ label: "For Patients: Explore Consultation", href: "/consultation" }}
         secondary={{
-          label: "For Institutions: Discuss Collaboration",
+          label: "Partner with GeneticxCare",
           href: "/healthcare-professionals#collaborate",
         }}
       />

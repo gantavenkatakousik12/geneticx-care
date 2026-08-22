@@ -10,13 +10,13 @@ import type { LegalDoc } from "@/lib/legal";
 export default function LegalPage({ doc, path }: { doc: LegalDoc; path: string }) {
   return (
     <>
-      <section className="border-b border-line bg-forest-900 py-14 md:py-16">
+      <section className="border-b border-line bg-navy-900 py-14 md:py-16">
         <div className="wrap-narrow">
           <span className="eyebrow eyebrow-onDark">Legal</span>
           <h1 className="mt-5 text-balance text-[32px] text-white md:text-[42px]">
             {doc.title}
           </h1>
-          <p className="mt-4 text-[14.5px] text-forest-200">
+          <p className="mt-4 text-[14.5px] text-navy-200">
             Effective Date: {SITE.legalUpdated} &nbsp;|&nbsp; Last Updated:{" "}
             {SITE.legalUpdated}
           </p>
@@ -35,8 +35,8 @@ export default function LegalPage({ doc, path }: { doc: LegalDoc; path: string }
                 aria-current={active ? "page" : undefined}
                 className={`rounded-full px-4 py-2 text-[13.5px] font-medium ${
                   active
-                    ? "bg-forest-800 text-white"
-                    : "border border-line text-ink-soft hover:bg-forest-50"
+                    ? "bg-navy-800 text-white"
+                    : "border border-line text-ink-soft hover:bg-navy-50"
                 }`}
               >
                 {item.label}
@@ -93,9 +93,7 @@ export default function LegalPage({ doc, path }: { doc: LegalDoc; path: string }
                 <a href={`mailto:${SITE.emails.privacy}`}>{SITE.emails.privacy}</a>{" "}
                 (subject: “Privacy / Data Protection Request”)
               </li>
-              <li>
-                Phone: <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>
-              </li>
+              <li>Phone: {SITE.phone}</li>
               <li>Website: {SITE.url.replace("https://", "")}</li>
             </ul>
 
@@ -103,7 +101,7 @@ export default function LegalPage({ doc, path }: { doc: LegalDoc; path: string }
               <strong>Correspondence Address:</strong> {SITE.address.lines.join(" ")}
             </p>
             <p>
-              This is a correspondence and business address and is{" "}
+              This is a correspondence address and is{" "}
               <strong>not a patient-facing clinical facility</strong>.
             </p>
           </section>

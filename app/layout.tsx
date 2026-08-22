@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE } from "@/lib/content";
+import { SITE, SOCIAL } from "@/lib/content";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.brand}`,
   },
   description:
-    "GeneticxCare provides professional genetic counseling, genetic risk assessment and genomic support for individuals, families and healthcare professionals.",
+    "GeneticxCare provides genetic counseling, risk assessment and genomic support for individuals, families and healthcare professionals.",
   openGraph: {
     type: "website",
     siteName: SITE.brand,
@@ -47,8 +47,11 @@ const orgJsonLd = {
   url: SITE.url,
   legalName: SITE.legalEntity,
   description: SITE.positioning,
+  logo: `${SITE.url}/images/logo-wordmark.png`,
   email: SITE.emails.info,
   telephone: SITE.phone,
+  /** Official profiles supplied in the correction doc. */
+  sameAs: SOCIAL.map((s) => s.href),
   address: {
     "@type": "PostalAddress",
     streetAddress: "Oyster Complex, Greenlands Road, Somajiguda, Begumpet",
@@ -65,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-forest-900 focus:px-5 focus:py-3 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-navy-900 focus:px-5 focus:py-3 focus:text-white"
         >
           Skip to main content
         </a>

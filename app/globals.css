@@ -8,30 +8,38 @@
  * ------------------------------------------------------------------ */
 
 @theme {
-  /* Brand greens */
-  --color-forest-950: #0A2B18;
-  --color-forest-900: #0E3A22;
-  --color-forest-800: #154C2D;
-  --color-forest-700: #1D6239;
-  --color-forest-600: #26773F;
-  --color-forest-500: #2F8A4E;
-  --color-forest-200: #C6DECA;
-  --color-forest-100: #E7F1E8;
-  --color-forest-50:  #F2F7F1;
+  /* Brand navy — sampled from the master logo (#001848 / #0A1F4C). */
+  --color-navy-950: #070F26;
+  --color-navy-900: #0E2148;
+  --color-navy-800: #14305F;
+  --color-navy-700: #1C4079;
+  --color-navy-600: #26538F;
+  --color-navy-500: #33689F;
+  --color-navy-200: #B9C9E0;
+  --color-navy-100: #DCE6F3;
+  --color-navy-50:  #EFF4FA;
 
-  /* Accent */
-  --color-gold-500: #F3C53F;
-  --color-gold-600: #DCAF25;
-  --color-gold-100: #FBF0CE;
+  /* Brand teal — sampled from the "Care" half of the logo (#109AA8). */
+  --color-teal-700: #0B7285;  /* accent text on light surfaces */
+  --color-teal-600: #0E8A9E;  /* button hover */
+  --color-teal-500: #17A2B8;  /* primary accent fill */
+  --color-teal-400: #3FBDD1;  /* accent on navy surfaces */
+  --color-teal-100: #DBF1F5;
+
+  /* Semantic warning — deliberately NOT the brand accent, so cautionary
+     notices (prenatal scope, emergency, correspondence office) read as
+     cautionary rather than as calls to action. */
+  --color-amber-500: #C9821A;
+  --color-amber-100: #FBF0DA;
 
   /* Ink + surfaces */
-  --color-ink: #11241A;
-  --color-ink-soft: #566A5D;
-  --color-ink-faint: #8A9A90;
-  --color-line: #DDE7DC;
-  --color-line-soft: #EDF2EA;
+  --color-ink: #0F1B2E;
+  --color-ink-soft: #4E5D73;
+  --color-ink-faint: #8494A8;
+  --color-line: #DCE3ED;
+  --color-line-soft: #EDF1F7;
   --color-paper: #FFFFFF;
-  --color-canvas: #F5F8F3;
+  --color-canvas: #F4F7FA;
 
   --font-display: var(--font-poppins), "Poppins", "Segoe UI", system-ui, sans-serif;
   --font-body: var(--font-inter), "Inter", "Segoe UI", system-ui, sans-serif;
@@ -63,7 +71,7 @@
 
   /* Visible, consistent focus ring for keyboard users (accessibility req). */
   :focus-visible {
-    outline: 3px solid var(--color-gold-500);
+    outline: 3px solid var(--color-teal-500);
     outline-offset: 3px;
     border-radius: 6px;
   }
@@ -88,16 +96,16 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 7px 16px 7px 12px;
     border-radius: 999px;
-    background: var(--color-forest-100);
-    color: var(--color-forest-800);
+    background: var(--color-navy-100);
+    color: var(--color-navy-800);
     font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase;
   }
   .eyebrow::before {
     content: ""; width: 7px; height: 7px; border-radius: 999px;
-    background: var(--color-gold-500);
+    background: var(--color-teal-500);
   }
-  .eyebrow-onDark { background: rgba(255,255,255,.12); color: #EAF3E9; }
+  .eyebrow-onDark { background: rgba(255,255,255,.12); color: #DCE6F3; }
 
   /* Buttons */
   .btn {
@@ -107,12 +115,12 @@
     line-height: 1; text-align: center; cursor: pointer;
     transition: background-color .18s ease, color .18s ease, border-color .18s ease;
   }
-  .btn-gold { background: var(--color-gold-500); color: var(--color-forest-950); }
-  .btn-gold:hover { background: var(--color-gold-600); }
-  .btn-green { background: var(--color-forest-800); color: #fff; }
-  .btn-green:hover { background: var(--color-forest-900); }
-  .btn-outline { border: 1.5px solid var(--color-forest-800); color: var(--color-forest-800); background: transparent; }
-  .btn-outline:hover { background: var(--color-forest-100); }
+  .btn-accent { background: var(--color-teal-500); color: var(--color-navy-950); }
+  .btn-accent:hover { background: var(--color-teal-600); }
+  .btn-navy { background: var(--color-navy-800); color: #fff; }
+  .btn-navy:hover { background: var(--color-navy-900); }
+  .btn-outline { border: 1.5px solid var(--color-navy-800); color: var(--color-navy-800); background: transparent; }
+  .btn-outline:hover { background: var(--color-navy-100); }
   .btn-ghostLight { border: 1.5px solid rgba(255,255,255,.45); color: #fff; background: transparent; }
   .btn-ghostLight:hover { background: rgba(255,255,255,.12); }
 
@@ -123,25 +131,25 @@
     border-radius: var(--radius-card);
     padding: 26px;
   }
-  .card-soft { background: var(--color-forest-50); border-color: var(--color-line-soft); }
+  .card-soft { background: var(--color-navy-50); border-color: var(--color-line-soft); }
 
   /* Text link with arrow */
   .link-arrow {
     display: inline-flex; align-items: center; gap: 6px;
-    color: var(--color-forest-700); font-weight: 600; font-size: 14.5px;
+    color: var(--color-navy-700); font-weight: 600; font-size: 14.5px;
   }
-  .link-arrow:hover { color: var(--color-forest-900); }
+  .link-arrow:hover { color: var(--color-navy-900); }
 
   /* Long-form legal / prose pages */
   .prose-legal h2 {
-    font-size: 20px; margin-top: 38px; margin-bottom: 10px; color: var(--color-forest-900);
+    font-size: 20px; margin-top: 38px; margin-bottom: 10px; color: var(--color-navy-900);
   }
   .prose-legal h3 { font-size: 16.5px; margin-top: 22px; margin-bottom: 6px; }
   .prose-legal p { margin-bottom: 14px; color: var(--color-ink-soft); }
   .prose-legal ul { margin: 0 0 16px 0; padding-left: 20px; list-style: disc; color: var(--color-ink-soft); }
   .prose-legal li { margin-bottom: 6px; }
   .prose-legal strong { color: var(--color-ink); font-weight: 600; }
-  .prose-legal a { color: var(--color-forest-700); text-decoration: underline; text-underline-offset: 2px; }
+  .prose-legal a { color: var(--color-navy-700); text-decoration: underline; text-underline-offset: 2px; }
 }
 
 /* Utility: balanced headline wrapping */

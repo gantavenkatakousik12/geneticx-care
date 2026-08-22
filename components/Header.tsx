@@ -5,21 +5,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { HEADER_NAV, NAV, SITE } from "@/lib/content";
+import { LOGO } from "@/lib/images";
 
+/** Supplied GeneticxCare wordmark (cropped from the master logo file). */
 function Logo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label={`${SITE.brand} home`}>
+    <Link href="/" className="flex shrink-0 items-center" aria-label={`${SITE.brand} home`}>
       <Image
-        src="/logo-mark.png"
-        alt=""
-        width={38}
-        height={38}
+        src={LOGO.wordmark.src}
+        alt={SITE.brand}
+        width={LOGO.wordmark.width}
+        height={LOGO.wordmark.height}
         priority
-        className="h-[38px] w-[38px] rounded-[11px] object-cover ring-1 ring-line"
+        className="h-[28px] w-auto md:h-[32px]"
       />
-      <span className="font-display text-[19px] font-bold tracking-tight text-forest-900">
-        Geneticx<span className="text-forest-600">Care</span>
-      </span>
     </Link>
   );
 }
@@ -89,8 +88,8 @@ export default function Header() {
                         aria-current={active ? "page" : undefined}
                         className={`rounded-full px-3.5 py-2 text-[14.5px] font-medium transition-colors ${
                           active
-                            ? "bg-forest-100 text-forest-900"
-                            : "text-ink-soft hover:bg-forest-50 hover:text-forest-800"
+                            ? "bg-navy-100 text-navy-900"
+                            : "text-ink-soft hover:bg-navy-50 hover:text-navy-800"
                         }`}
                       >
                         {item.label}
@@ -114,8 +113,8 @@ export default function Header() {
                       onClick={() => setMenu(expanded ? null : item.label)}
                       className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[14.5px] font-medium transition-colors ${
                         active
-                          ? "bg-forest-100 text-forest-900"
-                          : "text-ink-soft hover:bg-forest-50 hover:text-forest-800"
+                          ? "bg-navy-100 text-navy-900"
+                          : "text-ink-soft hover:bg-navy-50 hover:text-navy-800"
                       }`}
                     >
                       {item.label}
@@ -137,9 +136,9 @@ export default function Header() {
                           <Link
                             key={c.href + c.label}
                             href={c.href}
-                            className="block rounded-xl px-4 py-3 transition-colors hover:bg-forest-50"
+                            className="block rounded-xl px-4 py-3 transition-colors hover:bg-navy-50"
                           >
-                            <span className="block font-display text-[15px] font-semibold text-forest-900">
+                            <span className="block font-display text-[15px] font-semibold text-navy-900">
                               {c.label}
                             </span>
                             <span className="mt-0.5 block text-[13px] leading-snug text-ink-soft">
@@ -156,7 +155,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2.5">
-            <Link href="/consultation#book" className="btn btn-gold hidden sm:inline-flex">
+            <Link href="/consultation#book" className="btn btn-accent hidden sm:inline-flex">
               Book now
             </Link>
 
@@ -165,13 +164,13 @@ export default function Header() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-controls="mobile-nav"
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-4 py-2.5 font-display text-[14px] font-semibold text-forest-900 lg:hidden"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-4 py-2.5 font-display text-[14px] font-semibold text-navy-900 lg:hidden"
             >
               <span className="sr-only">{open ? "Close main menu" : "Open main menu"}</span>
               <span aria-hidden="true" className="flex flex-col gap-[3px]">
-                <span className="block h-[2px] w-4 rounded bg-forest-900" />
-                <span className="block h-[2px] w-4 rounded bg-forest-900" />
-                <span className="block h-[2px] w-4 rounded bg-forest-900" />
+                <span className="block h-[2px] w-4 rounded bg-navy-900" />
+                <span className="block h-[2px] w-4 rounded bg-navy-900" />
+                <span className="block h-[2px] w-4 rounded bg-navy-900" />
               </span>
               <span aria-hidden="true">Menu</span>
             </button>
@@ -191,7 +190,7 @@ export default function Header() {
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={`block border-b border-line-soft py-3 text-[15px] font-medium ${
-                      isActive(item.href) ? "text-forest-800" : "text-ink"
+                      isActive(item.href) ? "text-navy-800" : "text-ink"
                     }`}
                   >
                     {item.label}
@@ -199,7 +198,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Link href="/consultation#book" className="btn btn-gold mt-5 w-full">
+            <Link href="/consultation#book" className="btn btn-accent mt-5 w-full">
               Book now
             </Link>
           </nav>
