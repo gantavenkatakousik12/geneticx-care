@@ -47,36 +47,36 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <Section tone="paper">
-        <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          {/* Approved Founder & Director portrait, supplied August 2026. */}
-          <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-line bg-paper">
-            <div className="relative aspect-[3/4] w-full">
+        <div className="grid items-start gap-10 lg:grid-cols-[340px_1fr] lg:gap-14">
+          {/* Approved Founder & Director portrait */}
+          <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-line bg-paper max-w-sm">
+            <div className="relative aspect-[4/5] w-full">
               <Image
                 src={IMAGES.director.src}
                 alt={IMAGES.director.alt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 32vw"
+                sizes="(max-width: 1024px) 100vw, 340px"
                 className="object-cover object-top"
               />
             </div>
-            <div className="p-9">
-            <p className="font-display text-[15px] font-semibold text-navy-900">
-              Founder &amp; Director
-            </p>
-            <p className="mt-1 text-[14.5px] leading-relaxed text-ink-soft">
-              Certified Genetic Counselor practising in clinical genetics and
-              genomics.
-            </p>
-            <dl className="mt-6 space-y-3 border-t border-line-soft pt-5 text-[14px]">
-              <div>
-                <dt className="text-ink-faint">Qualifications</dt>
-                <dd className="font-semibold text-navy-900">M.Sc. | PGMGC | BGC-INDIA</dd>
-              </div>
-              <div>
-                <dt className="text-ink-faint">Operating region</dt>
-                <dd className="font-semibold text-navy-900">Telangana &amp; Andhra Pradesh</dd>
-              </div>
-            </dl>
+            <div className="p-6">
+              <p className="font-display text-[15px] font-semibold text-navy-900">
+                Founder &amp; Director
+              </p>
+              <p className="mt-1 text-[14px] leading-relaxed text-ink-soft">
+                Certified Genetic Counselor practising in clinical genetics and
+                genomics.
+              </p>
+              <dl className="mt-5 space-y-2.5 border-t border-line-soft pt-4 text-[13.5px]">
+                <div>
+                  <dt className="text-ink-faint">Qualifications</dt>
+                  <dd className="font-semibold text-navy-900">M.Sc. | PGMGC | BGC-INDIA</dd>
+                </div>
+                <div>
+                  <dt className="text-ink-faint">Operating region</dt>
+                  <dd className="font-semibold text-navy-900">Telangana &amp; Andhra Pradesh</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
@@ -106,16 +106,10 @@ export default function AboutPage() {
               institutions according to the needs of each case.
             </p>
 
-            <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-navy-50 p-6">
-              <h3 className="text-[17px] text-navy-900">Senior Advisors</h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-                GeneticxCare benefits from the advice and perspective of
-                experienced senior professionals in genetics and related
-                healthcare fields, including professionals with more than 25
-                years of experience. Their expertise is sought when appropriate
-                to support GeneticxCare&apos;s clinical approach, professional
-                standards and collaborative development.
-              </p>
+            <div className="mt-8 inline-flex items-center rounded-xl border border-line bg-navy-50 px-5 py-3.5">
+              <span className="font-display text-[14.5px] font-semibold text-navy-900">
+                Honorary advisors in clinical &amp; professional network
+              </span>
             </div>
           </div>
         </div>
@@ -143,7 +137,7 @@ export default function AboutPage() {
 
       {/* Our Approach */}
       <Section tone="paper">
-        <SectionHead eyebrow="Our Approach" title="How we work" align="center" />
+        <SectionHead title="How we work" align="center" />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {APPROACH_ABOUT.map((a) => (
             <article key={a.title} className="card h-full">

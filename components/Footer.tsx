@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { LEGAL_NAV, NAV, SITE, SOCIAL } from "@/lib/content";
 import { LOGO } from "@/lib/images";
-import { InstagramIcon, WhatsAppIcon, YouTubeIcon } from "@/components/ui";
+import { InstagramIcon, LinkedInIcon, WhatsAppIcon, YouTubeIcon } from "@/components/ui";
 
 const SOCIAL_ICON: Record<string, typeof YouTubeIcon> = {
+  LinkedIn: LinkedInIcon,
   YouTube: YouTubeIcon,
   Instagram: InstagramIcon,
 };

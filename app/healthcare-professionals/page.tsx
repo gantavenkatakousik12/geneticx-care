@@ -41,10 +41,10 @@ const CASE_FIELDS: readonly Field[] = [
     errorMsg: "Please describe the requirement.",
   },
   {
-    name: "report",
-    label: "Upload Relevant Report",
+    name: "document",
+    label: "Upload Relevant Document",
     type: "file",
-    hint: "Optional. Reports are transmitted securely and are never exposed publicly.",
+    hint: "Optional. Documents are transmitted securely and are never exposed publicly.",
   },
 ];
 

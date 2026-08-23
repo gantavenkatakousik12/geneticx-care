@@ -116,17 +116,22 @@ export default function ContactPage() {
             </p>
           </article>
 
-          {/* Correction doc, Contact §4. */}
-          <article className="card">
-            <h2 className="text-[17px] text-navy-900">WhatsApp Business</h2>
+          {/* Correction doc, Contact §4 — Highlighted */}
+          <article className="card border-teal-500/50 bg-teal-50/50 shadow-sm ring-1 ring-teal-500/20">
+            <div className="flex items-center justify-between">
+              <h2 className="text-[17px] font-semibold text-navy-900">WhatsApp Business</h2>
+              <span className="rounded-full bg-teal-600 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-white">
+                Fast Response
+              </span>
+            </div>
             <a
               href={SITE.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-arrow mt-3"
+              className="btn btn-accent mt-4 inline-flex items-center gap-2 w-full justify-center"
             >
-              <WhatsAppIcon />
-              Message GeneticxCare on WhatsApp <span aria-hidden="true">→</span>
+              <WhatsAppIcon className="h-5 w-5" />
+              Message on WhatsApp <span aria-hidden="true">→</span>
             </a>
             <p className="mt-4 text-[14px] leading-relaxed text-ink-soft">
               WhatsApp may be used for new enquiries, consultation-related

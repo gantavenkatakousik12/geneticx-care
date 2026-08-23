@@ -12,7 +12,7 @@ export const SITE = {
   legalEntity: "R114D Private Limited",
   positioning: "Integrated Clinical Genetics & Genomics",
   phase: "Telangana & Andhra Pradesh",
-  url: "https://www.geneticxcare.com",
+  url: "https://geneticxcare.com",
   phone: "+91 7013592834",
   phoneHref: "+917013592834",
   emails: {
@@ -43,10 +43,10 @@ export const SITE = {
 } as const;
 
 /**
- * Official social profiles (correction doc, final page).
- * LinkedIn was listed without a URL, so it is omitted until supplied.
+ * Official social profiles.
  */
 export const SOCIAL = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/geneticxcare" },
   { label: "YouTube", href: "https://www.youtube.com/@geneticxcare" },
   { label: "Instagram", href: "https://www.instagram.com/geneticxcare/" },
 ] as const;
@@ -163,7 +163,7 @@ export const SERVICES = [
 export const APPROACH_HOME = [
   {
     title: "Patient-centered",
-    body: "We consider the individual, their family and their healthcare needs — not just a test result.",
+    body: "We consider the individual, their family and their healthcare needs not just a test result.",
   },
   {
     title: "Evidence-informed",

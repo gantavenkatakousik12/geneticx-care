@@ -93,13 +93,14 @@ export default function EnquiryForm({
     return (
       <div
         role="status"
-        className="rounded-[var(--radius-card)] border border-navy-200 bg-navy-50 p-8"
+        className="rounded-[var(--radius-card)] border border-navy-200 bg-navy-50 p-8 text-left"
       >
-        <h3 className="text-[20px] text-navy-900">Enquiry received</h3>
+        <h3 className="text-[20px] font-semibold text-navy-900">Enquiry received</h3>
         <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-          Thank you. Your enquiry has been received by GeneticxCare. We will
-          review the information provided and contact you regarding the
-          appropriate next step.
+          Thank you for contacting GeneticxCare.
+        </p>
+        <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+          Your enquiry is now with our team for review. We will guide you on the appropriate next step.
         </p>
         <button
           type="button"

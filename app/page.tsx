@@ -68,13 +68,13 @@ export default function HomePage() {
                 </ul>
               </div>
 
-              <div className="relative min-h-[280px] lg:min-h-full">
+              <div className="relative min-h-[280px] lg:min-h-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto">
                 <Image
                   src={IMAGES.homeHero.src}
                   alt={IMAGES.homeHero.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 48vw"
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
@@ -97,8 +97,7 @@ export default function HomePage() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <span className="eyebrow">Introduction</span>
-            <h2 className="mt-4 text-balance text-[28px] text-navy-900 md:text-[38px]">
+            <h2 className="text-balance text-[28px] text-navy-900 md:text-[38px]">
               Genetics is part of healthcare.
             </h2>
             <p className="mt-5 text-pretty text-[16px] leading-relaxed text-ink-soft">
@@ -121,7 +120,6 @@ export default function HomePage() {
       {/* ---------------- Our Services ---------------- */}
       <Section tone="paper">
         <SectionHead
-          eyebrow="Our Services"
           title="Genetics and genomics support built around your circumstances"
           align="center"
         />
@@ -140,7 +138,6 @@ export default function HomePage() {
       {/* ---------------- Who We Support ---------------- */}
       <Section>
         <SectionHead
-          eyebrow="Who We Support"
           title="Genetics support for people, couples and clinical teams"
           align="center"
         />
@@ -157,7 +154,7 @@ export default function HomePage() {
       {/* ---------------- How GeneticxCare Works ---------------- */}
       <Section tone="paper">
         <SectionHead
-          eyebrow="How GeneticxCare Works"
+          eyebrow="How It Works"
           title="A clear pathway from your first concern to the next step"
           align="center"
         />
@@ -171,7 +168,6 @@ export default function HomePage() {
       {/* ---------------- Access to Genetics Care ---------------- */}
       <Section>
         <SectionHead
-          eyebrow="Access to Genetics Care"
           title="Genetics support, closer to you."
           align="center"
         />
@@ -223,7 +219,6 @@ export default function HomePage() {
       {/* ---------------- Our Approach ---------------- */}
       <Section tone="paper">
         <SectionHead
-          eyebrow="Our Approach"
           title="How we work with patients and healthcare teams"
           align="center"
         />

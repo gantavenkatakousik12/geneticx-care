@@ -93,17 +93,13 @@
 
   /* Eyebrow pill used above section headings */
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 7px 16px 7px 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 5px 14px;
     border-radius: 999px;
     background: var(--color-navy-100);
     color: var(--color-navy-800);
-    font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
     text-transform: uppercase;
-  }
-  .eyebrow::before {
-    content: ""; width: 7px; height: 7px; border-radius: 999px;
-    background: var(--color-teal-500);
   }
   .eyebrow-onDark { background: rgba(255,255,255,.12); color: #DCE6F3; }
 

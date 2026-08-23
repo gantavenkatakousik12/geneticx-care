@@ -1,0 +1,6 @@
+{
+  "name": "GeneticxCare",
+  "description": "Clinical genetics, genetic counseling, risk assessment, and genomic support platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
