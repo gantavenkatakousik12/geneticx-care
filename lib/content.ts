@@ -384,6 +384,7 @@ export const CLINICAL_NETWORK = [
   "Other healthcare professionals",
   "Independent diagnostic laboratories",
   "Participating hospitals and healthcare institutions",
+  "Honorary advisors",
 ] as const;
 
 /* ------------------------------------------------------------------ *

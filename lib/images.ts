@@ -4,10 +4,13 @@
  * All files live in /public/images. Widths/heights are the intrinsic pixel
  * dimensions of the supplied files so next/image can reserve layout space.
  *
+ * Filenames are the client's own, exactly as supplied in /public/images, so
+ * the folder can be replaced wholesale without touching this file.
+ *
  * NOTE FOR THE CLIENT — the master doc says "do not place text or logo inside
- * images". The supplied home-online-consultation and contact visuals do carry
- * the GeneticxCare wordmark inside the artwork. They are used as delivered
- * because they are the approved assets; flagging the conflict here.
+ * images". The supplied "home page consultation" and "contact page" visuals do
+ * carry the GeneticxCare wordmark inside the artwork. They are used as
+ * delivered because they are the approved assets; flagging the conflict here.
  */
 
 type Img = {
@@ -18,7 +21,10 @@ type Img = {
 };
 
 const img = (src: string, alt: string, width: number, height: number): Img => ({
-  src: `/images/${src}`,
+  // The client-supplied filenames contain spaces, so the path is encoded here
+  // rather than renaming their files — /public/images stays byte-for-byte the
+  // folder they hand over.
+  src: `/images/${encodeURIComponent(src)}`,
   alt,
   width,
   height,
@@ -27,7 +33,7 @@ const img = (src: string, alt: string, width: number, height: number): Img => ({
 export const IMAGES = {
   /** Home hero — genetic counselor discussing a pedigree with a couple. */
   homeHero: img(
-    "home-hero.png",
+    "GeneticxCare_Home_Hero_2400x1600.png",
     "A genetic counselor discussing a family pedigree chart with a couple during a consultation",
     2400,
     1600,
@@ -39,7 +45,7 @@ export const IMAGES = {
    * doctor-and-patient photograph.
    */
   homeOnline: img(
-    "home-online-consultation.png",
+    "home page consultation.png",
     "A laptop on a desk showing the GeneticxCare online consultation screen",
     1672,
     941,
@@ -50,7 +56,7 @@ export const IMAGES = {
    * Doc §10: the approved regional-access visual, not a hospital room.
    */
   homeRegional: img(
-    "home-regional-consultation.png",
+    "home page regional consultation.png",
     "An illustrated map of India with Telangana and Andhra Pradesh highlighted, between rural and urban healthcare facilities",
     1536,
     1024,
@@ -61,7 +67,7 @@ export const IMAGES = {
    * healthcare. Doc §10 reserves this image for About only.
    */
   aboutBridge: img(
-    "about-bridge.png",
+    "about.png",
     "A bridge linking laboratory science with clinical care and families",
     1536,
     1024,
@@ -69,7 +75,7 @@ export const IMAGES = {
 
   /** About — Founder & Director portrait. */
   director: img(
-    "about-director.jpg",
+    "about page director potrait.jpg",
     "Ravikanth Dabbeta, Founder and Director of GeneticxCare",
     1200,
     1800,
@@ -85,7 +91,7 @@ export const IMAGES = {
 
   /** Consultation hero — online and in-person consultation settings. */
   consultation: img(
-    "consultation.png",
+    "consultation page.png",
     "A genetic counselor on an online consultation alongside an in-person consultation with a couple",
     1717,
     916,
@@ -93,7 +99,7 @@ export const IMAGES = {
 
   /** Regional Program hero — genetics access across regional locations. */
   regional: img(
-    "regional-program.png",
+    "regional consultation page.png",
     "A genetics consultation linked by a route to city, town, rural and mobile healthcare settings",
     1535,
     1024,
@@ -101,7 +107,7 @@ export const IMAGES = {
 
   /** Healthcare Professionals hero — clinical team case discussion. */
   professionals: img(
-    "professionals.png",
+    "professional page.png",
     "A multidisciplinary clinical team discussing a case around a meeting table",
     1536,
     1024,
@@ -109,7 +115,7 @@ export const IMAGES = {
 
   /** Healthcare Professionals → Institutional Collaboration section only. */
   institutional: img(
-    "institutional-collaboration.png",
+    "institutaion collab  in professional page.png",
     "Participating hospitals and a diagnostic laboratory connected across a regional map",
     1535,
     1024,
@@ -125,7 +131,7 @@ export const IMAGES = {
 
   /** Contact hero. */
   contact: img(
-    "contact.png",
+    "contact page.png",
     "A GeneticxCare desk card beside a laptop and notebook in a quiet office",
     1536,
     1024,
@@ -133,13 +139,19 @@ export const IMAGES = {
 } as const;
 
 /**
- * Brand marks, cropped from the supplied master logo (logo-source.png).
- * The "light" variants are recoloured for the navy surfaces.
+ * Brand marks.
+ *
+ * wordmark / wordmarkLight are cropped from the supplied master logo
+ * ("Logo of Geneticxcare.png") for the light and navy surfaces.
+ *
+ * footer is the clean lockup the client supplied for the footer
+ * ("footer.png"), trimmed of its empty transparent margin so it sits evenly
+ * in the navy footer instead of rendering small and off-centre.
  */
 export const LOGO = {
   wordmark: { src: "/images/logo-wordmark.png", width: 1370, height: 232 },
   wordmarkLight: { src: "/images/logo-wordmark-light.png", width: 1370, height: 232 },
-  lockupLight: { src: "/images/logo-lockup-light.png", width: 1370, height: 354 },
+  footer: { src: "/images/logo-footer.png", width: 1223, height: 312 },
 } as const;
 
 export type ImageKey = keyof typeof IMAGES;

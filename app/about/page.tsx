@@ -22,26 +22,29 @@ export default function AboutPage() {
 
       {/* Our Purpose */}
       <Section>
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          {/*
-            Correction doc, About §2: the standalone heading sentence
-            "Genetics is increasingly relevant across healthcare." is removed
-            because the opening paragraph already says it. "Our Purpose" is the
-            section heading so the document outline stays intact.
-          */}
-          <h2 className="eyebrow self-start">Our Purpose</h2>
-          <div className="lg:pt-2">
-            <p className="text-pretty text-[16.5px] leading-relaxed text-ink-soft">
-              Genetics is increasingly relevant across healthcare, yet access to
-              genetics expertise remains limited in many communities.
-            </p>
-            <p className="mt-4 text-pretty text-[16.5px] leading-relaxed text-ink-soft">
-              GeneticxCare was established to help bring genetics-focused
-              expertise into appropriate healthcare pathways, supporting
-              individuals, families and healthcare teams through genetic
-              counseling, assessment and genomic support.
-            </p>
-          </div>
+        {/*
+          Correction doc, About §2: the standalone heading sentence
+          "Genetics is increasingly relevant across healthcare." is removed
+          because the opening paragraph already says it. "Our Purpose" is the
+          section heading so the document outline stays intact.
+
+          The label sits above the prose on the same left rail and at the same
+          measure as every other section on this page — it was previously a
+          two-column grid that pushed the paragraphs almost half the page to
+          the right of every other section.
+        */}
+        <h2 className="eyebrow">Our Purpose</h2>
+        <div className="mt-5 max-w-2xl">
+          <p className="text-pretty text-[16.5px] leading-relaxed text-ink-soft">
+            Genetics is increasingly relevant across healthcare, yet access to
+            genetics expertise remains limited in many communities.
+          </p>
+          <p className="mt-4 text-pretty text-[16.5px] leading-relaxed text-ink-soft">
+            GeneticxCare was established to help bring genetics-focused
+            expertise into appropriate healthcare pathways, supporting
+            individuals, families and healthcare teams through genetic
+            counseling, assessment and genomic support.
+          </p>
         </div>
       </Section>
 
@@ -105,12 +108,6 @@ export default function AboutPage() {
               professionals, diagnostic services and participating healthcare
               institutions according to the needs of each case.
             </p>
-
-            <div className="mt-8 inline-flex items-center rounded-xl border border-line bg-navy-50 px-5 py-3.5">
-              <span className="font-display text-[14.5px] font-semibold text-navy-900">
-                Honorary advisors in clinical &amp; professional network
-              </span>
-            </div>
           </div>
         </div>
       </Section>
@@ -129,7 +126,7 @@ export default function AboutPage() {
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-[15px] leading-relaxed text-ink-soft">
+        <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
           The professionals and organizations involved depend on the nature of
           the case and the healthcare pathway required.
         </p>
@@ -137,7 +134,7 @@ export default function AboutPage() {
 
       {/* Our Approach */}
       <Section tone="paper">
-        <SectionHead title="How we work" align="center" />
+        <SectionHead title="How we work" />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {APPROACH_ABOUT.map((a) => (
             <article key={a.title} className="card h-full">
@@ -170,7 +167,7 @@ export default function AboutPage() {
 
       {/* Legal entity note */}
       <Section tone="paper" className="!py-12">
-        <p className="text-[14.5px] leading-relaxed text-ink-soft">
+        <p className="max-w-2xl text-[14.5px] leading-relaxed text-ink-soft">
           GeneticxCare is a healthcare brand operated by{" "}
           <strong className="font-semibold text-ink">{SITE.legalEntity}</strong>. Phase 1
           operations cover {SITE.phase}.

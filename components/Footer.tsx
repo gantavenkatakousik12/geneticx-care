@@ -18,10 +18,10 @@ export default function Footer() {
           {/* Brand + contact */}
           <div>
             <Image
-              src={LOGO.lockupLight.src}
+              src={LOGO.footer.src}
               alt={`${SITE.brand} — ${SITE.positioning}`}
-              width={LOGO.lockupLight.width}
-              height={LOGO.lockupLight.height}
+              width={LOGO.footer.width}
+              height={LOGO.footer.height}
               className="h-[62px] w-auto"
             />
 

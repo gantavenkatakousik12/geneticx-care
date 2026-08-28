@@ -51,7 +51,13 @@
 @layer base {
   * { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  /*
+    Client request (Aug 2026): the site read as too zoomed-in at 100%, so the
+    whole thing renders one step down — the exact equivalent of a 90% browser
+    zoom. Applied on the root so every px-based size, radius and gap scales
+    together instead of only the type.
+  */
+  html { zoom: 0.9; scroll-behavior: smooth; scroll-padding-top: 6rem; }
 
   body {
     background: var(--color-canvas);
@@ -93,7 +99,14 @@
 
   /* Eyebrow pill used above section headings */
   .eyebrow {
+    /*
+      width/justify-self keep the pill hugging its label. Without them it
+      stretches to fill the track whenever it is used as a direct grid or
+      flex child (e.g. the About "Our Purpose" heading), which rendered it
+      as a full-width bar instead of a pill.
+    */
     display: inline-flex; align-items: center; justify-content: center;
+    width: fit-content; max-width: 100%; justify-self: start;
     padding: 5px 14px;
     border-radius: 999px;
     background: var(--color-navy-100);

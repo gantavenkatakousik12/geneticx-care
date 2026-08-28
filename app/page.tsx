@@ -23,7 +23,14 @@ export default function HomePage() {
       <section className="bg-canvas pt-6 pb-4 md:pt-10">
         <div className="wrap">
           <div className="overflow-hidden rounded-[var(--radius-xl2)] bg-navy-900">
-            <div className="grid items-stretch lg:grid-cols-[1.05fr_0.95fr]">
+            {/*
+              Correction doc §1: the desktop image column is widened (and the
+              crop anchored slightly right of centre) so the counselor AND the
+              couple stay in frame. object-cover on a narrower column was
+              cutting the couple off entirely. Mobile is untouched — the
+              columns only split from lg upwards.
+            */}
+            <div className="grid items-stretch lg:grid-cols-[0.95fr_1.05fr]">
               <div className="px-7 py-12 md:px-12 md:py-16 lg:py-20">
                 {/*
                   Correction doc, Home §1: the hierarchy is reversed. The first
@@ -73,8 +80,8 @@ export default function HomePage() {
                   src={IMAGES.homeHero.src}
                   alt={IMAGES.homeHero.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 48vw"
-                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 52vw"
+                  className="object-cover object-center lg:object-[53%_center]"
                   priority
                 />
               </div>
