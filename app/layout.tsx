@@ -33,6 +33,20 @@ export const metadata: Metadata = {
     url: SITE.url,
   },
   robots: { index: true, follow: true },
+  /*
+    Client-supplied favicon set in /public/favicon. favicon.ico is also copied
+    to the public root so the browsers and crawlers that request /favicon.ico
+    directly, without reading these tags, still resolve it.
+  */
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico", sizes: "48x48" },
+      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/favicon/site.webmanifest",
 };
 
 /**
